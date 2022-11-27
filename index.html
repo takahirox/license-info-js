@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Easy test</title>
+</head>
+<body>
+<script type="module">
+  import licenseInfo from './license-info.js';
+
+  const displayInfo = (name) => {
+    const info = licenseInfo.getByLicenseName(name);
+    const ul = document.createElement('ul');
+    for (const key in info) {
+      const li = document.createElement('li');
+      li.innerText = `${key}: ${info[key]}`;
+      ul.appendChild(li);
+    }
+    document.body.appendChild(ul);
+  };
+
+  const licenseNames = ['CC0', 'CC BY', 'CC BY-NC'];
+  for (const name of licenseNames) {
+    displayInfo(name);
+  }
+</script>
+</body>
+</html>
